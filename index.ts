@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 
-let continueCalculation = true; // Flag to control the loop
-let previousResult: number | null = null; // Variable to store the previous result
+let continueCalculation = true;
+let previousResult: number | null = null;
 
 while (continueCalculation) {
   const answers = await inquirer.prompt([
@@ -10,9 +10,9 @@ while (continueCalculation) {
       name: 'numberOne',
       message:
         previousResult === null
-          ? 'Kindly enter your first number: ' // If no previous result, ask for the first number
-          : `Previous result is ${previousResult}. Enter next number: `, // Otherwise, show previous result
-      when: () => previousResult === null, // Only ask for the first number if no previous result
+          ? 'Kindly enter your first number: '
+          : `Previous result is ${previousResult}. Enter next number: `,
+      when: () => previousResult === null,
     },
     {
       type: 'number',
@@ -27,7 +27,6 @@ while (continueCalculation) {
     },
   ]);
 
-  // If there's a previous result, use it as `numberOne`
   const numberOne =
     previousResult !== null ? previousResult : answers.numberOne;
   const numberTwo = answers.numberTwo;
@@ -36,7 +35,6 @@ while (continueCalculation) {
   if (numberOne !== undefined && numberTwo !== undefined && operator) {
     let result: number = 0;
 
-    // Perform the calculation based on the operator
     switch (operator) {
       case '+':
         result = numberOne + numberTwo;
@@ -52,16 +50,13 @@ while (continueCalculation) {
         break;
     }
 
-    // Output the result
     console.log('Result: ', result);
 
-    // Store the result for the next iteration
     previousResult = result;
   } else {
     console.log('Invalid input');
   }
 
-  // Ask if the user wants to continue
   const { continueCalc } = await inquirer.prompt({
     type: 'confirm',
     name: 'continueCalc',
@@ -70,7 +65,6 @@ while (continueCalculation) {
     default: true,
   });
 
-  // Update the continue flag
   continueCalculation = continueCalc;
 }
 
