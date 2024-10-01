@@ -3,12 +3,12 @@ const answers = await inquirer.prompt([
     {
         type: 'number',
         name: 'numberOne',
-        message: 'Kindly enter your first no: ',
+        message: 'Masukkan Angka Pertama: ',
     },
     {
         type: 'number',
         name: 'numberTwo',
-        message: 'Kindly enter your second no: ',
+        message: 'Masukkan Angka Kedua: ',
     },
     {
         type: 'list',
