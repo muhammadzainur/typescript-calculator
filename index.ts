@@ -10,20 +10,20 @@ while (continueCalculation) {
       name: 'numberOne',
       message:
         previousResult === null
-          ? 'Kindly enter your first number: '
-          : `Previous result is ${previousResult}. Enter next number: `,
+          ? 'Masukkan Angka Pertama: '
+          : `Hasil Sebelumnya ${previousResult}. Masukkan Angka Berikutnya: `,
       when: () => previousResult === null,
     },
     {
       type: 'number',
       name: 'numberTwo',
-      message: 'Kindly enter your second number: ',
+      message: 'Masukkan Angka Kedua: ',
     },
     {
       type: 'list',
       name: 'operator',
       choices: ['+', '-', '*', '/'],
-      message: 'Select operator: ',
+      message: 'Pilih Operator: ',
     },
   ]);
 
